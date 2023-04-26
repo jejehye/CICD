@@ -1,0 +1,7 @@
+Problem 1).Uglify Error
+
+ : Error in build.js from uglifyjs unexpected token name ~ > 에러 발생
+ 
+ Javascript .js 파일이 ES5 또는 ES6으로 변환 되어 complie 되나 uglifyjs는 ES6 형식은 지원하지 않아 발생한 에러로보임 
+ 
+ Solution 1) Uglifyjs(스페이스 영역등 축소할수 있도록 하는 패키지)가 지원하는 ES5 형식으로 변경 
