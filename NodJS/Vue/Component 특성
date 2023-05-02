@@ -1,0 +1,8 @@
+1. 상위<->하위 컨포넌트 
+   : 상위 Component는 하위 Component로 prop 속성 및 데이터를 전달하고, 하위 Component는 
+     상위로 Component 이벤트를 발생시킨다.
+     
+
+2.상위-> 하위 Component 데이터 전달
+  2-1) prop 전달 : 데이터를 전달할때 사용하는 속성, 하위컨포넌트 속성
+  
