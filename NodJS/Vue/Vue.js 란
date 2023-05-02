@@ -1,0 +1,15 @@
+1. Vue.js 란?
+   MVVM (Model View View Model)로 이루어진 패턴
+   View Model 은 뷰에 대하 모델로, ViewModel만 변경하면 즉시 View에 적용된다.
+   
+ 
+2. Vue component 란?
+
+   2-1) 전역컨포넘트
+        전역컨포넌트는 Vue library를 로딩하고, Vue 변수를 이용하여 등록
+        Vue.componet('컨포넌트명', ({}));
+   
+   2-2) 지역컨포터넘트
+        인스턴스에 컨포넡스 속성을 추가
+        
+        new Vue({ jeje: {}})
