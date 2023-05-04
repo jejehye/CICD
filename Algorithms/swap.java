@@ -51,4 +51,26 @@
       }
   }
  
+2-2. Map을 활용한 풀이
+
+
+import java.util.*;
+
+class Solution {
+    public String[] solution(String[] players, String[] callings) {
+        Map<String, Integer> map = new HashMap<>();
+        for (int i=0; i < players.length; i++){
+            map.put(players[i], i); //key랑 value 만들기 -> map 형태로
+        }
+        for (int j=0; j < callings.length; j++){
+            String s= callings[j];
+            int temp = map.get(s); // 매칭 
+            map.put(s, temp - 1); //put 집어넣기 key value 
+            map.put(players[temp -1], temp); //put 집어넣기 key value
+            players[temp] = players[temp - 1]; // SWAP 값 바꾸기 
+            players[temp - 1] = s; // 이전값을 집어넣기 
+        }
+        return players;
+    }
+}
 
