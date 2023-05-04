@@ -29,7 +29,9 @@
 2. Solution 
 
 2-1. 이중 for문 활용
-     :class Solution {
+   
+   
+  class Solution {
       public String[] solution(String[] players, String[] callings) {
         for (int i = 0; i < callings.length; i++) {
             String target = callings[i]; //탐색 타겟 설정
