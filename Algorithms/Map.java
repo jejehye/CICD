@@ -19,33 +19,37 @@
 ["may", "kein", "kain", "radi"]	[5, 10, 1, 3]	[["may"],["kein", "deny", "may"], ["kon", "coni"]]	[5, 15, 0]
 
 
-1-3. 풀이
+1-3. Solution
 
 
 import java.util.*;
 
 class Solution {
     public int[] solution(String[] name, int[] yearning, String[][] photo) {
+        int[] answer =  new int[3];
         Map<String, Integer> map = new HashMap<>();
         for(int i=0; i<name.length; i++){
             map.put(name[i],yearning[i]);
         }
-        int sum = 0;
         for (int j=0; j<photo.length; j++){
+            int sum = 0;
+            
             for(int k=0; k< photo[j].length; k++){
                if(map.get(photo[j][k])!=null){
                    int temp = map.get(photo[j][k]);
-                   System.out.println(temp);
-                   temp += temp;
+                   sum += temp;
+                   
                }
                 
             }
-
+            answer[j] =sum;
+            System.out.println(sum);
         }
-        int[] answer = {};
         return answer;
     }
 }
 
+
+        
 
         
