@@ -23,10 +23,10 @@ import java.util.*;
 class Solution {
     public int[] solution(String[] park, String[] routes) {
         int[] answer = new int[2]; // x,y 두개저장
-        for (int i =0; i<park.length; i++){
-            for (int j = 0; j <park[i].length(); j++){
+        for (int i = 0; i< park.length; i++){
+            for (int j = 0; j < park[i].length(); j++){
                 char target = park[i].charAt(j);
-                if (target=='S'){
+                if (target == 'S'){
                     answer[0]=i;
                     answer[1]=j;
                     System.out.println(answer[0]+answer[1]);
@@ -34,7 +34,7 @@ class Solution {
                 }
             }      
         }
-        for(int k=0; k < routes.length; k++){
+        for(int k = 0; k < routes.length; k++){
             String temp = routes[k].split(" ")[0];
             Integer move = Integer.parseInt(routes[k].split(" ")[1]);
             System.out.println(temp);
@@ -42,59 +42,67 @@ class Solution {
             System.out.println(" ");
             Boolean isMove = true;   // for를 전체 반복해서 빠져나가는건지,도중에 X를 만나서 빠져나가는지
             if ("E".equals(temp)){
-                if (move - answer[1] < 0 && park.length - move < 0){
+                if (answer[1] + move >= park[0].length()){
                     continue;
                 }                
-                for(int i=1; i<move; i++){
+                for(int i=1; i <= move; i++){
                     if(park[answer[0]].charAt(answer[1]+i)=='X'){
                         isMove = false;
                         break;
                     }
                 }
                 if(isMove){
-                    answer[1] = answer[1]+ move ;
+                    answer[1] = answer[1] + move ;
+                    System.out.println(answer[0]);
                 }
             }
             else if ("W".equals(temp)){
-                if (answer[1] - move < 0 && move -park.length <0){
+                if (answer[1] - move < 0){
                     continue;
                 }
-                for(int i=1; i<move; i++){
+                for(int i = 1; i <= move; i++){
                     if(park[answer[0]].charAt(answer[1]-i)=='X'){
+                        isMove = false;
                         continue;
                     }
                 }
                 if(isMove){
-                    answer[1] = answer[1] -move;
+                    answer[1] = answer[1] - move;
+                    System.out.println(answer[0]);
                 }             
             }
             else if ("S".equals(temp)){
-                if (move -answer[0] < 0 && park[answer[0]].length -move <0){
+                if (answer[0] + move <= park.length){
                     continue;
                 }
-                for(int i=1; i<move; i++){
-                    if(park[answer[0]+i].charAt(answer[1])=='X'){
+                for(int i = 1; i <= move; i++){
+                    if(park[answer[0]+i].charAt(answer[1]) == 'X'){
+                        isMove = false;
                         continue;
                     }
                 }
                 if(isMove){
-                    answer[0] = answer[0] +move;
+                    answer[0] = answer[0] + move;
+                    System.out.println(answer[0]);
                 }               
             }
             else if ("N".equals(temp)){
-                if (answer[0] - move < 0 && move - park[answer[0]].length <0){
+                if (answer[0] - move < 0){
                     continue;
                 }
-                for(int i=1; i<move; i++){
+                for(int i=1; i <= move; i++){
                     if(park[answer[0]-i].charAt(answer[1])=='X'){
+                        isMove = false;
                         continue;
                     }
                 }
                 if(isMove){
-                    answer[0] = answer[0] -move;
+                    answer[0] = answer[0] - move;
+                    System.out.println(answer[0]);
                 }   
             }
         }
+        System.out.println(answer[0]);
         return answer;
     }
 }
