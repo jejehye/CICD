@@ -72,7 +72,7 @@ class Solution {
                 }             
             }
             else if ("S".equals(temp)){
-                if (answer[0] + move <= park.length){
+                if (answer[0] + move >= park.length){
                     continue;
                 }
                 for(int i = 1; i <= move; i++){
